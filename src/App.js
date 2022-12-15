@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom"
 import './App.css';
 
 import LocationContextProvider from "./context/locationContext"
+import CardContextProvider from "./context/cardContext"
+
 
 import Home from "./pages/Home"
 import Collection from "./pages/Collection"
@@ -14,8 +16,6 @@ import Women from "./pages/Women"
 import WristColors from "./pages/WristColors"
 
 
-
-
 import MainNav from "./component/MainNav"
 import Footer from "./component/Footer"
 
@@ -23,6 +23,7 @@ import Footer from "./component/Footer"
 
 function App() {
   return (<LocationContextProvider>
+           <CardContextProvider>
             <article className="App">
               <section className="flex h-[100vh]">
                 <MainNav />
@@ -40,11 +41,9 @@ function App() {
               </section>
               <Footer />
             </article>
+           </CardContextProvider>
           </LocationContextProvider>
   );
 }
 
 export default App;
-
-//<Route path="cart" element={ <Cart/> } />
-//<Route path="collection" element={ <Collection/> } />

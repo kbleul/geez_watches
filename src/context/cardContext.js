@@ -11,24 +11,23 @@ const set_myCart = ( state , action ) => {
     
     switch(action.type) {
         case CART_ACTIONS.ADDTO :
-            return [ action.payload  , ...state ]
+            return [...action.payload]
 
         case CART_ACTIONS.DELETEFROM :
-            return [ action.payload  , ...state ]
+            return state.filter( item => item !== action.payload )
             
 
-        default :
-            return state
+        default :  return state
     }
 }
 
 const CardContextProvider = ({ children }) => {
 
-    const [ myCart , dispatch ] = useReducer(set_myCart , [])
+    const [ myCart , dispatch_myCart ] = useReducer(set_myCart , [])
 
 
     return( 
-    <CardContext.Provider value = { [ myCart , dispatch ] }>
+    <CardContext.Provider value = { [ myCart , dispatch_myCart ] }>
         { children }
     </CardContext.Provider> )
 }

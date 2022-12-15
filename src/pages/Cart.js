@@ -12,6 +12,11 @@ import img8 from "../media/watches/13.jpg"
 import { useEffect } from "react"
 import {useLocationContext} from "../customHooks/useMyContext"
 
+const watches_obj = {
+  "001" : 0, "002" : 1, "003" : 2, "004" : 3, "005" : 4, "006" : 5, "007" : 6,
+  "009" : 7
+}
+
 
 const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "2500" , "img" : img1 },
 {"id" : "001" , "Name" : "dolor sit, amet ", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "3000" , "img" : img2 },
@@ -49,6 +54,7 @@ const Cart = () => {
               <h3 className="text-center font-nav-main text-sm font-bold w-[20%]">Total</h3>
         </div>
 
+        
         <section className="w-full flex items-center justify-center">
             
 

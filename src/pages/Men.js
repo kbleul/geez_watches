@@ -9,6 +9,8 @@ import img6 from "../media/watches/15.jpg"
 import img7 from "../media/watches/14.jpg"
 import img8 from "../media/watches/13.jpg"
 
+import { useEffect } from "react"
+import {useLocationContext} from "../customHooks/useMyContext"
 
 const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "2500" , "img" : img1 },
 {"id" : "001" , "Name" : "dolor sit, amet ", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "3000" , "img" : img2 },
@@ -23,6 +25,13 @@ const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ip
 ]
 
 const Men = () => {
+
+  const [ whereAmI , set_whereAmI ] = useLocationContext()
+
+  useEffect(() => {
+    if(whereAmI !== "gender") { set_whereAmI("gender") }
+  },[])
+
   return (
     <main className="w-3/4 h-[100vh] overflow-y-scroll pb-48">
     <p className="w-[80%] ml-[10%] leading-8 font-nav-main my-16 font-bold text-center">A man’s got two shots for jewelry: a wedding ring and a watch. The watch is a lot easier to get on and off than a wedding ring.</p>

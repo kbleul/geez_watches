@@ -12,12 +12,20 @@ import img8 from "../media/watches/8.jpg"
 import img9 from "../media/watches/9.jpg"
 import img10 from "../media/watches/10.jpg"
 
-
+import { useEffect } from "react"
+import {useLocationContext} from "../customHooks/useMyContext"
 import Testimonial from "../component/Testimonial"
 
 
 
 const Home = () => {
+
+    const [ whereAmI , set_whereAmI ] = useLocationContext()
+
+  useEffect(() => {
+    if(whereAmI !== "home") { set_whereAmI("home") }
+  },[])
+
   return (
     <main className="w-3/4 h-[100vh] overflow-y-scroll">
         <div className="h-[80vh] w-full  mb-[15vh] relative">

@@ -9,6 +9,9 @@ import img6 from "../media/watches/5.jpg"
 import img7 from "../media/watches/4.jpg"
 import img8 from "../media/watches/3.jpg"
 
+import { useEffect } from "react"
+import {useLocationContext} from "../customHooks/useMyContext"
+
 
 const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "2500" , "img" : img1 },
 {"id" : "001" , "Name" : "dolor sit, amet ", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "3000" , "img" : img2 },
@@ -23,6 +26,14 @@ const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ip
 ]
 
 const Women = () => {
+
+  const [ whereAmI , set_whereAmI ] = useLocationContext()
+
+  useEffect(() => {
+    if(whereAmI !== "gender") { set_whereAmI("gender") }
+  },[])
+
+
   return (
     <main className="w-3/4 h-[100vh] overflow-y-scroll pb-48">
     <p className="w-[80%] ml-[10%] leading-8 font-nav-main my-16 font-bold text-center">For the confident and powerful woman.  </p>

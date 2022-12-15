@@ -6,6 +6,9 @@ import img3 from "../media/watches/19.jpg"
 import img4 from "../media/watches/18.jpg"
 import img5 from "../media/watches/16.jpg"
 
+import { useEffect } from "react"
+import {useLocationContext} from "../customHooks/useMyContext"
+
 
 const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "2500" , "img" : img1 },
 {"id" : "001" , "Name" : "dolor sit, amet ", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "3000" , "img" : img2 },
@@ -14,6 +17,14 @@ const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ip
 ]
 
 const Catalog = () => {
+  
+  const [ whereAmI , set_whereAmI ] = useLocationContext()
+
+  useEffect(() => {
+    if(whereAmI !== "catalog") { set_whereAmI("catalog") }
+  },[])
+
+
   return (
     <main className="w-3/4 h-[100vh] overflow-y-scroll pb-48">
 

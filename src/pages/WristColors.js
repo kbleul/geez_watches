@@ -25,18 +25,19 @@ const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ip
 
 ]
 
-const Collection = () => {
+
+const WristColors = () => {
 
   const [ whereAmI , set_whereAmI ] = useLocationContext()
 
-  useEffect(() => {
-    if(whereAmI !== "collection") { set_whereAmI("collection") }
-  },[])
+  // useEffect(() => {
+  //   if(whereAmI !== "wrist_color") { set_whereAmI("wrist_color") }
+  // },[])
 
 
   return (
-    <main className="w-3/4 h-[100vh] overflow-y-scroll pb-48">
-     <h1 className="text-5xl font-serif font-bold my-16 w-[30%] ml-[69.5%] py-2 px-1 text-white text-end  bg-black">Collections</h1>
+    <main className="w-3/4 h-[100vh] overflow-y-scroll pb-48 capitalize">
+     <h1 className="text-5xl font-serif font-bold my-16 w-[30%] ml-[69.5%] py-2 px-1 text-white text-end  bg-black">Ge'ez {whereAmI.split("-")[1]} </h1>
 
      <article className="grid gap-x-4 gap-y-20 grid-cols-3 w-[96%] ml-[2%]">
         { temp_watches.map(item => (
@@ -59,4 +60,4 @@ const Collection = () => {
   )
 }
 
-export default Collection
+export default WristColors

@@ -25,8 +25,11 @@ const Cart = () => {
   const [ viewCart_items , set_viewCart_items ] = useState([])
 
   //total selected items including added qantities
-  const [ selectedItems , set_selectedItems ] = useState(0)
+  const [ selectedItems , set_selectedItems ] = useState(myCart.length)
   const [ totalPrice , set_totalPrice ] = useState(0)
+
+  const [ addedItems , set_addedItems ] = useState([])
+
 
 
 
@@ -44,7 +47,7 @@ const Cart = () => {
       <article className="w-2/3 border h-[99vh] overflow-y-scroll">
         <section className="flex justify-between items-center w-full">
          <h1 className="text-5xl font-serif font-bold mt-4 mb-16 w-[60%] ml-[.5%] py-2 px-1 text-white text-end  bg-black">Shopping Cart</h1>
-         <p className="mr-4 font-bold text-xl">3 Items</p>
+         <p className="mr-4 font-bold text-xl">{selectedItems} Items</p>
         </section>
 
         <div className="flex mb-4">
@@ -61,7 +64,7 @@ const Cart = () => {
           </div>
         </section>}
 
-        { viewCart_items.map(item => (  <CartItems item={item}  />  ))  }
+        { viewCart_items.map(item => (  <CartItems item={item} setSelected = {set_selectedItems} setTotalPrice={set_totalPrice}  addedItems = {addedItems}  set_addedItems = {set_addedItems} />  ))  }
      
       </article>
 
@@ -69,7 +72,7 @@ const Cart = () => {
         <h2 className="py-4 text-2xl font-bold border-b border-gray-300 w-[90%] ml-[5%]">Order Summery</h2>
         <div className="py-2 font-nav-main px-2 font-bold  w-[90%] ml-[5%] flex justify-between text-sm mb-[25vh] mt-4">
           <p>Items { selectedItems }</p>
-          <p className="">13,500 </p>
+          <p className="">{totalPrice}</p>
         </div>
 
         <div className=" py-2 font-nav-main px-2 font-bold  w-[90%] ml-[5%] flex justify-between text-sm mb-4">

@@ -1,9 +1,9 @@
 
+import maincover from "../media/watches/18.jpg"
 
 import img1 from "../media/watches/1.jpg"
 import img2 from "../media/watches/2.jpg"
 import img3 from "../media/watches/11.jpg"
-import maincover from "../media/watches/18.jpg"
 import img4 from "../media/watches/4.jpg"
 import img5 from "../media/watches/5.jpg"
 import img6 from "../media/watches/6.jpg"
@@ -15,6 +15,9 @@ import img10 from "../media/watches/10.jpg"
 import { useEffect } from "react"
 import {useLocationContext} from "../customHooks/useMyContext"
 import Testimonial from "../component/Testimonial"
+
+import { Link } from "react-router-dom";
+
 
 
 
@@ -44,36 +47,36 @@ const Home = () => {
       
 
             <section className="grid grid-flow-dense auto-rows-[200px] grid-cols-gridTemplateColumns grid-cols-3 bg-black mb-2">
-                <div className=" col-span-1 border border-white bg-red-200 row-span-1 relative" >
+                <Link to="/view/001_Lorem Epsum" className=" col-span-1 border border-white bg-red-200 row-span-1 relative" >
                   <img src={img1} className=" w-full h-full contrast-125 hover:hue-rotate-180" />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-400 row-span-2">
+                </Link>
+                <Link to="/view/003_mollitia qui" className="col-span-1 border border-white bg-gray-400 row-span-2">
                 <img src={img2} className="w-full h-full contrast-125 hover:hue-rotate-180" />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-1">
+                </Link>
+                <Link to="/view/004_dolore sunt error" className="col-span-1 border border-white bg-gray-600 row-span-1">
                 <img src={img3} className="w-full h-full contrast-125 hover:hue-rotate-180" />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-2">
+                </Link>
+                <Link to="/view/005_sed inventore" className="col-span-1 border border-white bg-gray-600 row-span-2">
                 <img src={img4} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-2">
+                </Link>
+                <Link to="/view/006_voluptate! Illo" className="col-span-1 border border-white bg-gray-600 row-span-2">
                 <img src={img5} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-1">
+                </Link>
+                <Link to="/view/007_Non blanditiis sed in" className="col-span-1 border border-white bg-gray-600 row-span-1">
                 <img src={img6} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-2">
+                </Link>
+                <Link to="/view/008_natus beatae illum" className="col-span-1 border border-white bg-gray-600 row-span-2">
                 <img src={img7} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-1">
+                </Link>
+                <Link to="/view/009_voluptate! Illo" className="col-span-1 border border-white bg-gray-600 row-span-1">
                 <img src={img8} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-2">
+                </Link>
+                <Link to="/view/010_voluptate! Illo" className="col-span-1 border border-white bg-gray-600 row-span-2">
                 <img src={img9} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
-                <div className="col-span-1 border border-white bg-gray-600 row-span-1">
+                </Link>
+                <Link to="/view/011_voluptate! Illo" className="col-span-1 border border-white bg-gray-600 row-span-1">
                 <img src={img10} className="w-full h-full contrast-125 hover:hue-rotate-180 " />
-                </div>
+                </Link>
                
             </section>
 

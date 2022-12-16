@@ -20,7 +20,7 @@ const MainNav = () => {
         <img src={logo} alt="Ge'ez Watches" />
       </section>
 
-      <nav className="mt-[30%] mb-[40%] block font-nav-main">
+      <nav className="mt-[25%] mb-[20%] block font-nav-main">
         <Link to="/" className={whereAmI === "home" ? "mb-8 ml-[22%] block  px-10 border-orange-500 hover:text-orange-500 hover:border-white font-extrabold border-l-4 " : "mb-8 ml-[22%] block  px-10 border-orange-500 hover:text-orange-500 hover:border-white font-extrabold"}>Home</Link>
 
         <Link to="/cart" className={whereAmI === "cart" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white border-l-4 border-orange-500 flex gap-[25%]" : "mb-8 ml-[22%] px-10 hover:text-orange-500 font-extrabold border-orange-500 hover:border-white flex gap-[25%]"}>
@@ -50,9 +50,11 @@ const MainNav = () => {
         </div>
 
 
-    </nav><nav className="font-bold">
-        <Link to="login" className="block w-[40%] border hover:border-none  hover:bg-yellow-300 hover:text-black ml-[30%] px-4 py-2 text-center mb-6">Login</Link>
-        <Link to="signup" className="block w-[40%]  ml-[30%] px-4 py-2 text-center hover:bg-yellow-300 bg-yellow-100 text-bold text-black">Sign Up</Link>
+    </nav>
+    
+    <nav className="flex w-4/5 ml-[10%] items-center justify-center cursor-pointer">
+        <Link to="login" className="font-bold w-2/5 border hover:border-none bg-white hover:bg-yellow-100 text-black border px-4 py-2 text-center">Login</Link>
+        <p className="w-3/4 ml-10 text-sm hover:underline">or register here</p>
       </nav>
 
     </article>

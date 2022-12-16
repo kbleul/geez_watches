@@ -9,6 +9,8 @@ import img6 from "../media/watches/15.jpg"
 import img7 from "../media/watches/14.jpg"
 import img8 from "../media/watches/13.jpg"
 
+import { Link } from "react-router-dom";
+
 import { useEffect } from "react"
 import {useLocationContext} from "../customHooks/useMyContext"
 import {useCartContext} from "../customHooks/useMyContext"
@@ -45,10 +47,11 @@ const Collection = () => {
 
      <article className="grid gap-x-4 gap-y-20 grid-cols-3 w-[96%] ml-[2%]">
         { temp_watches.map(item => (
-            <section key={item.id} className="border-2 border-black h-[61vh] hover:opacity-90 relative">
-                <div>
-                    <img className="h-[42vh] w-full" src={item.img} alt={item.Disc} />
-                </div>
+           
+            <section  key={item.id} className="border-2 border-black h-[61vh] relative">
+                <Link to={`/view/${item.id}_${item.Name}` }>
+                    <img className="h-[42vh] w-full hover:opacity-90" src={item.img} alt={item.Disc} />
+                </Link>
                 <div>
                     <h3 className="font-bold text-center capitalize bg-black text-white mb-2  font-nav-main">{item.Name}</h3>
                     <p className="h-[19vh] px-2">{item.Disc}</p>
@@ -57,8 +60,8 @@ const Collection = () => {
                   <p className="text-end text-xl font-extrabold absolute bottom-0 right-1">{item.Price} Birr</p>
                   
                   { myCart.includes(item.id) ?
-                    <button className=" self-end w-[50%] capitalize bg-white text-black text-sm font-bold absolute top-0 right-0 p-2" onClick={() => removeFromCart(item.id , myCart , set_myCart) }><span>-</span> Remove from Cart</button>  :
-                    <button className="border border-black self-end w-[40%] capitalize bg-black text-white absolute top-0 right-0" onClick={ () => { addToCart(item.id , myCart , set_myCart) }}>add to cart <span>+</span></button> 
+                    <button className=" self-end w-[50%] capitalize bg-gray-500 text-black text-sm font-bold absolute bottom-0 left-0 py-1 text-white hover:opacity-90 " onClick={() => removeFromCart(item.id , myCart , set_myCart) }><span>-</span> Remove from Cart</button>  :
+                    <button className="border border-black self-end w-[40%] capitalize bg-black text-white absolute bottom-0 left-0 hover:opacity-90" onClick={ () => { addToCart(item.id , myCart , set_myCart) }}>add to cart <span>+</span></button> 
                   }
                   
                  

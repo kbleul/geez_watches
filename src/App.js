@@ -14,6 +14,8 @@ import Cart from "./pages/Cart"
 import Men from "./pages/Men"
 import Women from "./pages/Women"
 import WristColors from "./pages/WristColors"
+import ViewWatch from "./pages/View_Watch"
+
 
 
 import MainNav from "./component/MainNav"
@@ -36,6 +38,7 @@ function App() {
                   <Route path="men" element={<Men /> } />
                   <Route path="women" element={<Women /> } />
                   <Route path="wrist_color" element={<WristColors /> } />
+                  <Route path="view/:slug" element={<ViewWatch />} />
                 </Routes>
 
               </section>

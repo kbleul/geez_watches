@@ -1,35 +1,38 @@
-import { createContext , useReducer } from "react"
+import { createContext , useState } from "react"
+
+export const addToCart = (id , myCart , set_myCart ) => {
+
+    if(myCart.includes(id)) return
+
+
+    if(myCart.length === 0)
+      {  set_myCart([id])  }
+    else {  set_myCart(prev => [id , ...prev]) }
+}
+
+export const removeFromCart = ( id , myCart , set_myCart ) => {
+
+    if(myCart.includes(id)) {
+        set_myCart(prev => prev.filter(tempP => tempP !== id))
+    }
+
+}
+
 
 export const CardContext = createContext()
 
-export const CART_ACTIONS = {
-    "ADDTO" : "ADDTO",
-    "DELETEFROM" : "DELETEFROM",
-}
 
-const set_myCart = ( state , action ) => {
-    
-    switch(action.type) {
-        case CART_ACTIONS.ADDTO :
-            return [...action.payload]
-
-        case CART_ACTIONS.DELETEFROM :
-            return state.filter( item => item !== action.payload )
-            
-
-        default :  return state
-    }
-}
 
 const CardContextProvider = ({ children }) => {
 
-    const [ myCart , dispatch_myCart ] = useReducer(set_myCart , [])
+    const [ myCart , set_myCart ] = useState([])
 
 
     return( 
-    <CardContext.Provider value = { [ myCart , dispatch_myCart ] }>
+    <CardContext.Provider value = { [ myCart , set_myCart ] }>
         { children }
     </CardContext.Provider> )
 }
 
 export default CardContextProvider
+

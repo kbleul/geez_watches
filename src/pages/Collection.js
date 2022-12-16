@@ -13,8 +13,7 @@ import { useEffect } from "react"
 import {useLocationContext} from "../customHooks/useMyContext"
 import {useCartContext} from "../customHooks/useMyContext"
 
-
-import {CART_ACTIONS} from "../context/cardContext"
+import  { addToCart , removeFromCart }  from "../context/cardContext"
 
 
 const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ipsum dolor sit, amet consectetur adipisicing elit.", "Price" : "2500" , "img" : img1 },
@@ -31,19 +30,14 @@ const temp_watches = [{"id" : "001" , "Name" : "Lorem Epsum", "Disc" : "Lorem ip
 const Collection = () => {
 
   const [ whereAmI , set_whereAmI ] = useLocationContext()
-  const [ myCart , dispatch_myCart ] = useCartContext()
+  const [ myCart , set_myCart ] = useCartContext()
 
 
   useEffect(() => {
     if(whereAmI !== "collection") { set_whereAmI("collection") }
-    console.log("mycart " , myCart.length)
   },[])
 
-  const addToCart = (id) => {
-    console.log([id , ...myCart])
-    //dispatch_myCart({ type: CART_ACTIONS.ADDTO , payload:  [id , ...myCart] })
-  }
-
+  
 
   return (
     <main className="w-3/4 h-[100vh] overflow-y-scroll pb-48">
@@ -63,10 +57,11 @@ const Collection = () => {
                   <p className="text-end text-xl font-extrabold absolute bottom-0 right-1">{item.Price} Birr</p>
                   
                   { myCart.includes(item.id) ?
-                    <button className="border border-black self-end w-[40%] capitalize bg-black text-white absolute top-0 right-0" onClick={dispatch_myCart({ type: CART_ACTIONS.ADDTO , payload:  item.id  })  }>Remove from Cart <span>+</span></button>  :
-                    <button className="border border-black self-end w-[40%] capitalize bg-black text-white absolute top-0 right-0" onClick={ () => addToCart(item.id) }>add to cart <span>+</span></button> 
+                    <button className=" self-end w-[50%] capitalize bg-white text-black text-sm font-bold absolute top-0 right-0 p-2" onClick={() => removeFromCart(item.id , myCart , set_myCart) }><span>-</span> Remove from Cart</button>  :
+                    <button className="border border-black self-end w-[40%] capitalize bg-black text-white absolute top-0 right-0" onClick={ () => { addToCart(item.id , myCart , set_myCart) }}>add to cart <span>+</span></button> 
                   }
-             
+                  
+                 
             </section>
         ))}
      </article>
@@ -75,3 +70,12 @@ const Collection = () => {
 }
 
 export default Collection
+
+
+/*
+
+    { myCart.includes(item.id) ?
+      <button className="border border-black self-end w-[40%] capitalize bg-black text-white absolute top-0 right-0" onClick={() => removeFromCart(item.id , myCart , set_myCart) }><span>+</span> Remove from Cart</button>  :
+    
+    }
+  */

@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { useState } from "react"
-import { useLocationContext } from "../customHooks/useMyContext";
+import { useLocationContext , useCartContext } from "../customHooks/useMyContext";
 
 import logo from "../media/logo.jpg"
 
@@ -10,6 +10,9 @@ const MainNav = () => {
 
   const [menu_choice , set_menu_choice ] = useState("none")
   const [ whereAmI , set_whereAmI ] = useLocationContext()
+  const [ myCart ] = useCartContext()
+
+
 
   return (
     <article className="text-white w-1/4 bg-gradient-to-t from-[#484848] to-[black] overflow-y-scroll pb-8">
@@ -20,13 +23,16 @@ const MainNav = () => {
       <nav className="mt-[30%] mb-[40%] block font-nav-main">
         <Link to="/" className={whereAmI === "home" ? "mb-8 ml-[22%] block  px-10 border-orange-500 hover:text-orange-500 hover:border-white font-extrabold border-l-4 " : "mb-8 ml-[22%] block  px-10 border-orange-500 hover:text-orange-500 hover:border-white font-extrabold"}>Home</Link>
 
-        <Link to="/cart" className={whereAmI === "cart" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white border-l-4 border-orange-500" : "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold border-orange-500 hover:border-white"}>Cart</Link>
+        <Link to="/cart" className={whereAmI === "cart" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white border-l-4 border-orange-500 flex gap-[25%]" : "mb-8 ml-[22%] px-10 hover:text-orange-500 font-extrabold border-orange-500 hover:border-white flex gap-[25%]"}>
+          <p>Cart</p> 
+          {myCart.length > 0 && <p className="bg-gray-600 text-red-300 rounded-full w-[1.5rem] h-[1rem] text-xs text-center self-start ">{myCart.length}</p>}
+        </Link>
 
         <Link to="/collections" className={whereAmI === "collection" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold border-orange-500 border-l-4 hover:border-white" : "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold border-orange-500 hover:border-white"}>Collection</Link>
 
         <Link to="/catalog" className={whereAmI === "catalog" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white  border-l-4 border-orange-500 " : "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white"}>Catalogs</Link>
 
-        <buttom className={whereAmI === "gender" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white bg-inherit border-l-4 border-orange-500" : "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white bg-inherit"} onClick={() => menu_choice === "gender" ? set_menu_choice("none") : set_menu_choice("gender")}>Gender</buttom>
+        <button className={whereAmI === "gender" ? "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white bg-inherit border-l-4 border-orange-500" : "mb-8 ml-[22%] block px-10 hover:text-orange-500 font-extrabold hover:border-white bg-inherit"} onClick={() => menu_choice === "gender" ? set_menu_choice("none") : set_menu_choice("gender")}>Gender</button>
 
         <div className={menu_choice === "gender" ? "" : "hidden"}>
           <Link to="/men" className="mb-8 ml-[29%] block px-10 hover:text-orange-500 font-extrabold hover:border-white bg-inherit">Men's</Link>

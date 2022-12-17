@@ -16,7 +16,7 @@ import Women from "./pages/Women"
 import WristColors from "./pages/WristColors"
 import ViewWatch from "./pages/View_Watch"
 import Login from "./pages/Login"
-
+import Signup from "./pages/Signup"
 
 import MainNav from "./component/MainNav"
 import Footer from "./component/Footer"
@@ -39,14 +39,8 @@ function App() {
                   <Route path="wrist_color" element={<WristColors /> } />
                   <Route path="view/:slug" element={<ViewWatch />} />
                   <Route path="Login" element={<Login /> } />
-
+                  <Route path="Signup" element={<Signup /> } />
                 </Routes>
-
-              </section>
-
-              <section>
-
-
 
               </section>
               <Footer />

@@ -75,37 +75,13 @@ const ViewWatch = () => {
     </main>
 
     <section className="mt-[20vh] mb-[20%] w-11/12 ml-[4.5%] font-nav-main leading-8">
-            <h2 className="font-extrabold text-2xl py-6">About</h2>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam ut possimus nisi maiores. Sequi, laboriosam consequatur? Minus corrupti veniam blanditiis quaerat sit odio eum praesentium sed corporis libero nisi fugit quam distinctio modi molestias aperiam, autem, error quo vitae! Consequatur nam officia illo expedita itaque vitae, ea omnis recusandae facere porro reiciendis adipisci veritatis a quas, ullam perspiciatis ex sunt. Molestias ipsam tempore voluptas facilis id molestiae consectetur error fugit cumque suscipit atque beatae qui hic velit magnam, asperiores eos ipsum pariatur minima. Cupiditate magni nesciunt, hic qui sed officia accusantium quis obcaecati sit quae aut. Odit dolorem debitis architecto.
-            </p>
+        <h2 className="font-extrabold text-2xl py-6">About</h2>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam ut possimus nisi maiores. Sequi, laboriosam consequatur? Minus corrupti veniam blanditiis quaerat sit odio eum praesentium sed corporis libero nisi fugit quam distinctio modi molestias aperiam, autem, error quo vitae! Consequatur nam officia illo expedita itaque vitae, ea omnis recusandae facere porro reiciendis adipisci veritatis a quas, ullam perspiciatis ex sunt. Molestias ipsam tempore voluptas facilis id molestiae consectetur error fugit cumque suscipit atque beatae qui hic velit magnam, asperiores eos ipsum pariatur minima. Cupiditate magni nesciunt, hic qui sed officia accusantium quis obcaecati sit quae aut. Odit dolorem debitis architecto.
+        </p>
     </section>
     </article>
   )
 }
 
 export default ViewWatch
-
-/*
-
-<article className="w-[30%] ">
-          <h2>{name}</h2>
-          <p>{temp_watches[ watches_obj[id] ].Price}</p>
-
-          { myCart.includes(id) ?
-            <button onClick={ () => { removeFromCart(id , myCart , set_myCart) }}>Remove from Cart</button> :
-            <button onClick={ () => { addToCart(id , myCart , set_myCart) }}>Add To Cart</button>
-          }
-       </article>
-
-
-<h2>{name}</h2>
-         <p>{temp_watches[ watches_obj[id] ].Price}</p>
-
-         { myCart.includes(id) ?
-          <button onClick={ () => { removeFromCart(id , myCart , set_myCart) }}>Remove from Cart</button> :
-          <button onClick={ () => { addToCart(id , myCart , set_myCart) }}>Add To Cart</button>
-         }
-
-
-*/

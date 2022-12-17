@@ -33,6 +33,7 @@ const Cart = () => {
 
 
 
+
   useEffect(() => {
     if(whereAmI !== "cart") { set_whereAmI("cart") }
   },[])
@@ -64,7 +65,7 @@ const Cart = () => {
           </div>
         </section>}
 
-        { viewCart_items.map(item => (  <CartItems item={item} setSelected = {set_selectedItems} setTotalPrice={set_totalPrice}  addedItems = {addedItems}  set_addedItems = {set_addedItems} />  ))  }
+        { viewCart_items.map(item => (  <CartItems key={item} item={item} setSelected = {set_selectedItems} setTotalPrice={set_totalPrice}  addedItems = {addedItems}  set_addedItems = {set_addedItems} totalPrice = {totalPrice}/>  ))  }
      
       </article>
 
@@ -72,7 +73,7 @@ const Cart = () => {
         <h2 className="py-4 text-2xl font-bold border-b border-gray-300 w-[90%] ml-[5%]">Order Summery</h2>
         <div className="py-2 font-nav-main px-2 font-bold  w-[90%] ml-[5%] flex justify-between text-sm mb-[25vh] mt-4">
           <p>Items { selectedItems }</p>
-          <p className="">{totalPrice}</p>
+          <p className="">{totalPrice }</p>
         </div>
 
         <div className=" py-2 font-nav-main px-2 font-bold  w-[90%] ml-[5%] flex justify-between text-sm mb-4">

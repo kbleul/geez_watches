@@ -52,10 +52,10 @@ const MainNav = () => {
 
     </nav>
     
-    <nav className="flex w-4/5 ml-[10%] items-center justify-center cursor-pointer">
-        <Link to="login" className="font-bold w-2/5 border hover:border-none bg-white hover:bg-yellow-100 text-black border px-4 py-2 text-center">Login</Link>
+   { whereAmI !== "login" && <nav className="flex w-4/5 ml-[10%] items-center justify-center cursor-pointer">
+        <Link to="login" className="font-bold w-2/5 border hover:border-none bg-white hover:bg-yellow-100 text-black  px-4 py-2 text-center">Login</Link>
         <p className="w-3/4 ml-10 text-sm hover:underline">or register here</p>
-      </nav>
+      </nav>}
 
     </article>
   )

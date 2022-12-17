@@ -31,7 +31,7 @@ const watches_obj = {
   ]
 
 
-const CartItems = ({ item , setSelected , setTotalPrice , addedItems , set_addedItems}) => {
+const CartItems = ({ item , setSelected , setTotalPrice , totalPrice , addedItems , set_addedItems  }) => {
 
   const [ myCart , set_myCart ] = useCartContext()
 
@@ -47,31 +47,33 @@ const CartItems = ({ item , setSelected , setTotalPrice , addedItems , set_added
 
   useEffect(() => {
 
-    if(addedItems.length >= 3) return
-    console.log(temp_watches[watches_obj[item]].Price , addedItems )
+    if(addedItems.length >= myCart.length ) return
     
     if(addedItems.length=== 0) { 
       set_addedItems([temp_watches[watches_obj[item]].id ]) 
-      setTotalPrice([Number(temp_watches[watches_obj[item]].Price)])
+   //   setTotalPrice(Number(temp_watches[watches_obj[item]].Price))
     }
     else {
       set_addedItems(prev => [ temp_watches[watches_obj[item]].id ,...prev ])
-      setTotalPrice(prev => prev + Number(temp_watches[watches_obj[item]].Price))
     }
+    console.log("total price " , totalPrice)
+
+    setTotalPrice(prev => prev + Number(temp_watches[watches_obj[item]].Price))
   },[])
 
   const changeQuantity = (type) => {
-
+console.log( Number(temp_watches[watches_obj[item]].Price))
     if(type === "increment") 
       { if(quantity < 50) {  
-        setQuantity(prev => ++prev)
-        setSelected(prev => ++prev)
-        setTotalPrice(prev => prev + (total/quantity))
-      }  }
+          setQuantity(prev => ++prev)
+          setSelected(prev => ++prev)
+          setTotalPrice(prev => prev + Number(temp_watches[watches_obj[item]].Price))
+        }  
+      }
     else {  if(quantity > 1) {  
         setQuantity(prev => --prev)
         setSelected(prev => --prev)
-        setTotalPrice(prev => prev - (total/quantity))
+        setTotalPrice(prev => prev - Number(temp_watches[watches_obj[item]].Price))
     } }
 
   }
@@ -88,6 +90,7 @@ const CartItems = ({ item , setSelected , setTotalPrice , addedItems , set_added
             </section>
 
             <button className="hover:opacity-70 absolute top-0 " onClick={() => {
+              setTotalPrice(prev => prev - total)
               setSelected(prev => prev - quantity)
               removeFromCart(item , myCart , set_myCart)} }>
               <svg class="fill-black hover:fill-red-500" xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M12 4c-4.419 0-8 3.582-8 8s3.581 8 8 8s8-3.582 8-8s-3.581-8-8-8zm3.707 10.293a.999.999 0 1 1-1.414 1.414L12 13.414l-2.293 2.293a.997.997 0 0 1-1.414 0a.999.999 0 0 1 0-1.414L10.586 12L8.293 9.707a.999.999 0 1 1 1.414-1.414L12 10.586l2.293-2.293a.999.999 0 1 1 1.414 1.414L13.414 12l2.293 2.293z"/></svg>
@@ -103,7 +106,7 @@ const CartItems = ({ item , setSelected , setTotalPrice , addedItems , set_added
             </section>
         </article>
 
-        <p  className="w-[20%] text-center">{temp_watches[watches_obj[item]].Price} <span className="text-xm">Birr</span></p>
+        <p  className="w-[20%] text-center">{temp_watches[watches_obj[item]].Price}  <span className="text-xm">Birr</span></p>
             
         <p className="w-[20%] text-center">{total} <span className="text-xs">Birr</span></p>
 

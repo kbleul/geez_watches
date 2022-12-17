@@ -4,7 +4,6 @@ import {useCartContext} from "../customHooks/useMyContext"
 
 
 import img1 from "../media/watches/21.jpg"
-import img2 from "../media/watches/20.jpg"
 import img3 from "../media/watches/19.jpg"
 import img4 from "../media/watches/18.jpg"
 import img9 from "../media/watches/17.jpg"

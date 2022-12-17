@@ -27,7 +27,7 @@ const Signup = () => {
 
          <button className="w-2/5 bg-black text-white font-bold hover:bg-gray-900 py-2 text-center ml-[30%]">Signup</button>
 
-         <p className="text-sm text-center mt-4 text-white">Don't have an account yet ? <Link to="/signup" className="text-red-600 ml-2 hover:underline">Creat Account Here</Link></p>
+         <p className="text-sm text-center mt-4 text-white">Aleady have an account ? <Link to="/signup" className="text-red-600 ml-2 hover:underline">Login Here</Link></p>
        </article>
     </main>
   )
